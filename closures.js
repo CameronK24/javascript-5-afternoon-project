@@ -209,7 +209,6 @@ function secretNumber() {
 */
 
 function timeOutCounter() {
-  let x = 0;
   for (var i = 0; i <= 5; i++) {
     function count(timer) {
       setTimeout(function() {
