@@ -166,19 +166,9 @@ class Machine {
     return this.needs_reboot = true;
   }
   reboot() {
-    return function() {
-      console.log('surprise: ' + this.wear_and_tear_count);
+    return ()=> {
+      this.needs_reboot = false;
       this.wear_and_tear_count -= 10;
-      return this.needs_reboot = false;
     }
-    this.wear_and_tear_count -= 10;
-    console.log(this.wear_and_tear_count);
-    this.needs_reboot = false;
   }
 }
-
-let robot1 = new Machine();
-robot1.makeWidgets(50);
-robot1.makeWidgets(500);
-robot1.reboot();
-console.log(robot1);
