@@ -166,14 +166,14 @@ class Machine {
     return this.needs_reboot = true;
   }
   reboot() {
-    if (this.needs_reboot === true) {
-      return function rebootComplete() {
-        console.log('surprise: ' + this.wear_and_tear_count);
-        this.wear_and_tear_count -= 10;
-        this.needs_reboot = false;
-        return this.wear_and_tear_count;
-      }
+    return function() {
+      console.log('surprise: ' + this.wear_and_tear_count);
+      this.wear_and_tear_count -= 10;
+      return this.needs_reboot = false;
     }
+    this.wear_and_tear_count -= 10;
+    console.log(this.wear_and_tear_count);
+    this.needs_reboot = false;
   }
 }
 
