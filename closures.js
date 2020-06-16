@@ -211,15 +211,12 @@ function secretNumber() {
 function timeOutCounter() {
   let x = 0;
   for (var i = 0; i <= 5; i++) {
-    console.log(x);
-    preserve(i);
-    
-  }
-  function preserve(num) {
-    x = num;
-    setTimeout(function() {
-      console.log(x);
-    }, x * 1000);
+    function count(timer) {
+      setTimeout(function() {
+        console.log(timer);
+      }, timer * 1000);
+    }
+    count(i);  
   }
 }
 timeOutCounter();
